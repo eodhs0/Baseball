@@ -1,4 +1,4 @@
-package com.example.baseball;
+package kr.ac.kookmin.oss.baseball;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
