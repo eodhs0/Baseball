@@ -1,9 +1,6 @@
 package kr.ac.kookmin.oss.baseball;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -12,9 +9,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    SearchFragment fragSearch;
+    CompareFragment fragCompare;
+    PredictFragment fragPredict;
+    static StatData statData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,15 +25,6 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -40,6 +34,13 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        statData = new StatData(MainActivity.this); // Initialize Statistics Data
+
+        fragSearch = SearchFragment.newInstance();
+        fragCompare = CompareFragment.newInstance();
+        fragPredict = PredictFragment.newInstance();
+
     }
 
     @Override
@@ -80,18 +81,18 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        if (id == R.id.nav_search) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.content_main, fragSearch).commit();
+        } else if (id == R.id.nav_compare) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.content_main, fragCompare).commit();
+        } else if (id == R.id.nav_predict) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.content_main, fragPredict).commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

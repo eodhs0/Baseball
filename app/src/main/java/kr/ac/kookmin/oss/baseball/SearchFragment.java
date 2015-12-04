@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 
 public class SearchFragment extends Fragment {
 
+    private View view;
+
     public static SearchFragment newInstance() {
         SearchFragment fragment = new SearchFragment();
         return fragment;
@@ -15,7 +17,6 @@ public class SearchFragment extends Fragment {
 
     public SearchFragment() {
 
-// Required empty public constructor
     }
 
     @Override
@@ -27,8 +28,8 @@ public class SearchFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-// Inflate the layout for this fragment
-        return inflater.inflate(R.layout.content_main, container, false);
+        view = inflater.inflate(R.layout.fragment_search, container, false);
+        return view;
     }
 
 }

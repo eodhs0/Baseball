@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 
 public class PredictFragment extends Fragment {
 
+    private View view;
+
     public static PredictFragment newInstance() {
         PredictFragment fragment = new PredictFragment();
         return fragment;
@@ -15,7 +17,6 @@ public class PredictFragment extends Fragment {
 
     public PredictFragment() {
 
-// Required empty public constructor
     }
 
     @Override
@@ -27,8 +28,8 @@ public class PredictFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-// Inflate the layout for this fragment
-        return inflater.inflate(R.layout.content_main, container, false);
+        view = inflater.inflate(R.layout.fragment_predict, container, false);
+        return view;
     }
 
 }

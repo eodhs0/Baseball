@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 
 public class CompareFragment extends Fragment {
 
+    private View view;
+
     public static CompareFragment newInstance() {
         CompareFragment fragment = new CompareFragment();
         return fragment;
@@ -15,7 +17,6 @@ public class CompareFragment extends Fragment {
 
     public CompareFragment() {
 
-// Required empty public constructor
     }
 
     @Override
@@ -27,8 +28,8 @@ public class CompareFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-// Inflate the layout for this fragment
-        return inflater.inflate(R.layout.content_main, container, false);
+        view = inflater.inflate(R.layout.fragment_compare, container, false);
+        return view;
     }
 
 }
