@@ -1,52 +1,93 @@
 package kr.ac.kookmin.oss.baseball;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.view.Menu;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends ActionBarActivity {
+
+    DrawerLayout dlDrawer;
+    ActionBarDrawerToggle dtToggle;
+
+    ListView lvDrawerList;
+    ArrayAdapter<String> adtDrawerList;
+    String[] menuItems = new String[]{"Search", "Compare", "Predict"};
+
+    SearchFragment fragSearch;
+    CompareFragment fragCompare;
+    PredictFragment fragPredict;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        fragSearch = SearchFragment.newInstance();
+        fragCompare = CompareFragment.newInstance();
+        fragPredict = PredictFragment.newInstance();
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        getSupportFragmentManager().beginTransaction().replace(R.id.content_main, fragSearch).commit();
+
+        // Navigation drawer : menu lists
+        lvDrawerList = (ListView) findViewById(R.id.lv_activity_main);
+        adtDrawerList = new ArrayAdapter(this, android.R.layout.simple_list_item_1, menuItems);
+        lvDrawerList.setAdapter(adtDrawerList);
+        lvDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                switch (position) {
+                    case 0:
+                        getSupportFragmentManager()
+                                .beginTransaction()
+                                .replace(R.id.content_main, fragSearch).commit();
+                        break;
+                    case 1:
+                        getSupportFragmentManager()
+                                .beginTransaction()
+                                .replace(R.id.content_main, fragCompare).commit();
+                        break;
+                    case 2:
+                        getSupportFragmentManager()
+                                .beginTransaction()
+                                .replace(R.id.content_main, fragPredict).commit();
+                        break;
+                }
+                dlDrawer.closeDrawer(lvDrawerList);
             }
         });
+
+        // Navigation drawer : ActionBar Toggle
+        dlDrawer = (DrawerLayout) findViewById(R.id.dl_activity_main);
+        dtToggle = new ActionBarDrawerToggle(this, dlDrawer, R.string.app_name, R.string.app_name);
+        dlDrawer.setDrawerListener(dtToggle);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+    protected void onPostCreate(Bundle savedInstanceState){
+        super.onPostCreate(savedInstanceState);
+        dtToggle.syncState();
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+    public void onConfigurationChanged(Configuration newConfig){
+        super.onConfigurationChanged(newConfig);
+        dtToggle.onConfigurationChanged(newConfig);
+    }
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        if(dtToggle.onOptionsItemSelected(item)){
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
+
 }
