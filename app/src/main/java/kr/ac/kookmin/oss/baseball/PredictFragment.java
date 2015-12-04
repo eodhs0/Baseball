@@ -28,7 +28,7 @@ public class PredictFragment extends Fragment {
                              Bundle savedInstanceState) {
 
 // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_predict, container, false);
+        return inflater.inflate(R.layout.content_main, container, false);
     }
 
 }

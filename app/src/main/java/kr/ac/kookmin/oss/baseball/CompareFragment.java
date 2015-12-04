@@ -28,7 +28,7 @@ public class CompareFragment extends Fragment {
                              Bundle savedInstanceState) {
 
 // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_compare, container, false);
+        return inflater.inflate(R.layout.content_main, container, false);
     }
 
 }
