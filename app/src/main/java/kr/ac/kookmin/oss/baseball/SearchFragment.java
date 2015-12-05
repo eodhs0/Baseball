@@ -29,6 +29,7 @@ public class SearchFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         view = inflater.inflate(R.layout.fragment_search, container, false);
+
         return view;
     }
 

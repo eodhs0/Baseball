@@ -41,6 +41,8 @@ public class MainActivity extends AppCompatActivity
         fragCompare = CompareFragment.newInstance(); // Create compare fragment
         fragPredict = PredictFragment.newInstance(); // Create predict fragment
 
+        Toast.makeText(MainActivity.this, statData.statList.get(1).get("NAME"),Toast.LENGTH_LONG).show();
+
     }
 
     @Override

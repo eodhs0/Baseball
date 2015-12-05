@@ -22,7 +22,7 @@ public class StatData {
 
         try
         {
-            InputStream in = mContext.getAssets().open("stat.dat");
+            InputStream in = mContext.getAssets().open("BatterData.dat");
             BufferedReader reader = new BufferedReader(new InputStreamReader(in));
 
             String line = null;
