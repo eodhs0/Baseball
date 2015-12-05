@@ -11,6 +11,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import java.util.Iterator;
+import java.util.Set;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -40,8 +43,6 @@ public class MainActivity extends AppCompatActivity
         fragSearch = SearchFragment.newInstance(); // Create search fragment
         fragCompare = CompareFragment.newInstance(); // Create compare fragment
         fragPredict = PredictFragment.newInstance(); // Create predict fragment
-
-        Toast.makeText(MainActivity.this, statData.statList.get(1).get("NAME"),Toast.LENGTH_LONG).show();
 
     }
 
