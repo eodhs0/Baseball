@@ -35,11 +35,11 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        statData = new StatData(MainActivity.this); // Initialize Statistics Data
+        statData = new StatData(MainActivity.this); // Initialize statistics data
 
-        fragSearch = SearchFragment.newInstance();
-        fragCompare = CompareFragment.newInstance();
-        fragPredict = PredictFragment.newInstance();
+        fragSearch = SearchFragment.newInstance(); // Create search fragment
+        fragCompare = CompareFragment.newInstance(); // Create compare fragment
+        fragPredict = PredictFragment.newInstance(); // Create predict fragment
 
     }
 
