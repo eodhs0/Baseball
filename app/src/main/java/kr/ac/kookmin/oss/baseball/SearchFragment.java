@@ -53,7 +53,7 @@ public class SearchFragment extends Fragment {
                 Iterator<String> iterator = data.keySet().iterator();
                 while (iterator.hasNext()) {
                     String key = (String) iterator.next();
-                    temp = temp + " " + key + " " + data.get(key) + " ";
+                    temp = temp + " " + key + " " + data.get(key) + System.getProperty("line.separator");
                 }
 
                 textView.setText(temp);
