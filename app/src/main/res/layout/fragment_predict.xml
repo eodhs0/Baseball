@@ -1,13 +1,52 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/serach_pitchertext"
+            android:layout_width="200dp"
+            android:layout_height="50dp" />
+
+        <Button
+            android:id="@+id/search_pitcherbutton"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:text="투수 예측" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/serach_battertext"
+            android:layout_width="200dp"
+            android:layout_height="50dp" />
+
+        <Button
+            android:id="@+id/search_batterbutton"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:text="타자 예측" />
+
+
+    </LinearLayout>
+
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/stat_text"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="predict" />
+        android:text="예측하고 싶은 선수명을 입력하세요." />
 
-</FrameLayout>
+</LinearLayout>
