@@ -24,10 +24,9 @@
             android:label="@string/title_activity_team_select"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-<<<<<<< HEAD
             android:name=".CompareResult"
-            android:label="@string/title_activity_compare_result"
-=======
+            android:label="@string/title_activity_compare_result" />
+        <activity
             android:name=".BetterSearchActivity"
             android:label="@string/title_activity_batter_search_activity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -50,7 +49,6 @@
         <activity
             android:name=".TeamSearchActivity"
             android:label="@string/title_activity_team_search_activity"
->>>>>>> cc35f9b3bfd6efc31b3673636dba96142da0d22b
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

@@ -24,9 +24,9 @@ public class CompareResult extends AppCompatActivity {
         setContentView(R.layout.activity_compare_result);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
-        toolbar.setTitle("비교결과");
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        toolbar.setTitle("비교결과");
+ //       setSupportActionBar(toolbar);
+  //      getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
