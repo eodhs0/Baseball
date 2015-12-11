@@ -9,19 +9,37 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="100dp">
-        
-        <EditText
-            android:id="@+id/serach_text"
-            android:layout_width="200dp"
-            android:layout_height="50dp" />
 
-       <Button
-           android:id="@+id/search_button"
-           android:layout_width="100dp"
-           android:layout_height="50dp"
-           android:text="Search" />
 
-    </LinearLayout>
+
+        <Button
+            android:id="@+id/search_batterbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="타자 search" />
+
+        <Button
+            android:id="@+id/search_pitcherbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="투수 search" />
+
+        <Button
+            android:id="@+id/search_teambutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="팀 search" />
+
+            </LinearLayout>
+
+
+
+
+
+
+
+
+
 
     <TextView
         android:layout_width="match_parent"
