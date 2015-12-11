@@ -22,6 +22,10 @@
         <activity
             android:name=".TeamSelectActivity"
             android:label="@string/title_activity_team_select"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".CompareResult"
+            android:label="@string/title_activity_compare_result"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
