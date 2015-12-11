@@ -9,21 +9,22 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 
-public class TeamSelectActivity extends AppCompatActivity {
+public class BetterSearchResult extends AppCompatActivity {
 
     private TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_team_search_result);
+        setContentView(R.layout.activity_batter_search_result);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("Better Search Result");
         setSupportActionBar(toolbar);
 
         textView = (TextView) findViewById(R.id.stat_text);
 
 
-        LinkedHashMap<String, String> data = TeamSearchActivity.data3.get(0);
+        LinkedHashMap<String, String> data = BetterSearchActivity.data1.get(0);
         String temp = "";
 
         Iterator<String> iterator = data.keySet().iterator();
@@ -35,5 +36,4 @@ public class TeamSelectActivity extends AppCompatActivity {
         textView.setText(temp);
 
     }
-
 }

@@ -8,4 +8,10 @@
     <string name="navigation_drawer_open">Drawer open</string>
     <string name="navigation_drawer_close">Drawer close</string>
     <string name="title_activity_team_select">TeamSelectActivity</string>
+    <string name="title_activity_batter_search_activity">batter_search_activity</string>
+    <string name="title_activity_batter_search_result">batter_search_result</string>
+    <string name="title_activity_pitcher_search_result">pitcher_search_result</string>
+    <string name="title_activity_team_search_result">team_search_result</string>
+    <string name="title_activity_pitcher_search_activity">pitcher_search_activity</string>
+    <string name="title_activity_team_search_activity">team_search_activity</string>
 </resources>

@@ -22,6 +22,30 @@
         <activity
             android:name=".TeamSelectActivity"
             android:label="@string/title_activity_team_select"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".BetterSearchActivity"
+            android:label="@string/title_activity_batter_search_activity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".BetterSearchResult"
+            android:label="@string/title_activity_batter_search_result"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".PitcherSearchResult"
+            android:label="@string/title_activity_pitcher_search_result"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".TeamSearchResult"
+            android:label="@string/title_activity_team_search_result"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".PitcherSearchActivity"
+            android:label="@string/title_activity_pitcher_search_activity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".TeamSearchActivity"
+            android:label="@string/title_activity_team_search_activity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

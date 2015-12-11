@@ -11,7 +11,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 
 public class SearchFragment extends Fragment {
@@ -57,7 +56,7 @@ public class SearchFragment extends Fragment {
         batterSearchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getContext(), TeamSelectActivity.class);
+                Intent i = new Intent(getContext(), BetterSearchActivity.class);
                 startActivity(i);
             }
         });
@@ -65,7 +64,7 @@ public class SearchFragment extends Fragment {
         pitcherSearchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getContext(), TeamSelectActivity.class);
+                Intent i = new Intent(getContext(), PitcherSearchActivity.class);
                 startActivity(i);
             }
         });
@@ -73,7 +72,7 @@ public class SearchFragment extends Fragment {
         teamSearchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getContext(), TeamSelectActivity.class);
+                Intent i = new Intent(getContext(), TeamSearchActivity.class);
                 startActivity(i);
             }
         });

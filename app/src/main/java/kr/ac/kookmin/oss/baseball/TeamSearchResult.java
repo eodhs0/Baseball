@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 
-public class TeamSelectActivity extends AppCompatActivity {
+public class TeamSearchResult extends AppCompatActivity {
 
     private TextView textView;
 
@@ -18,10 +18,10 @@ public class TeamSelectActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team_search_result);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("Team Search Result");
         setSupportActionBar(toolbar);
 
         textView = (TextView) findViewById(R.id.stat_text);
-
 
         LinkedHashMap<String, String> data = TeamSearchActivity.data3.get(0);
         String temp = "";
@@ -35,5 +35,6 @@ public class TeamSelectActivity extends AppCompatActivity {
         textView.setText(temp);
 
     }
+
 
 }
