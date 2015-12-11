@@ -2,15 +2,14 @@ package kr.ac.kookmin.oss.baseball;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 
 public class TeamSelectActivity extends AppCompatActivity {
@@ -27,11 +26,13 @@ public class TeamSelectActivity extends AppCompatActivity {
     ImageView team_wyvurns;
 
     static ArrayList<LinkedHashMap<String, String>> compareTeamList;
+    private TextView textView;
 
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_team_select);
+        setContentView(R.layout.activity_team_search_result);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("비교 할 팀을 선택하세요");
 
@@ -46,6 +47,20 @@ public class TeamSelectActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
+
+        textView = (TextView) findViewById(R.id.stat_text);
+
+
+        LinkedHashMap<String, String> data = TeamSearchActivity.data3.get(0);
+        String temp = "";
+
+        Iterator<String> iterator = data.keySet().iterator();
+        while (iterator.hasNext()) {
+            String key = (String) iterator.next();
+            temp = temp + " " + key + " " + data.get(key) + System.getProperty("line.separator");
+        }
+
+        textView.setText(temp);
 
         team_bears = (ImageView) findViewById(R.id.team_bears);
         team_bears.setOnClickListener(new View.OnClickListener() {

@@ -1,5 +1,6 @@
 package kr.ac.kookmin.oss.baseball;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,15 +11,17 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 
 public class SearchFragment extends Fragment {
 
     private View view;
     private EditText editText;
-    private Button searchButton;
+    public Button searchButton1;
     private TextView textView;
+    private Button batterSearchButton;
+    private Button pitcherSearchButton;
+    private Button teamSearchButton;
 
     public static SearchFragment newInstance() {
         SearchFragment fragment = new SearchFragment();
@@ -31,6 +34,7 @@ public class SearchFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
     }
 
@@ -39,24 +43,37 @@ public class SearchFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         view = inflater.inflate(R.layout.fragment_search, container, false);
-        editText = (EditText) view.findViewById(R.id.serach_text);
-        searchButton = (Button) view.findViewById(R.id.search_button);
+       // editText = (EditText) view.findViewById(R.id.serach_text);
+        searchButton1 = (Button) view.findViewById(R.id.search_button);
+        batterSearchButton = (Button) view.findViewById(R.id.search_batterbutton);
+        pitcherSearchButton = (Button) view.findViewById(R.id.search_pitcherbutton);
+        teamSearchButton = (Button) view.findViewById(R.id.search_teambutton);
         textView = (TextView) view.findViewById(R.id.stat_text);
 
 
-        searchButton.setOnClickListener(new View.OnClickListener() {
+
+
+        batterSearchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LinkedHashMap<String, String> data = searchBatter((editText.getText().toString()));
-                String temp = "";
+                Intent i = new Intent(getContext(), BetterSearchActivity.class);
+                startActivity(i);
+            }
+        });
 
-                Iterator<String> iterator = data.keySet().iterator();
-                while (iterator.hasNext()) {
-                    String key = (String) iterator.next();
-                    temp = temp + " " + key + " " + data.get(key) + System.getProperty("line.separator");
-                }
+        pitcherSearchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(), PitcherSearchActivity.class);
+                startActivity(i);
+            }
+        });
 
-                textView.setText(temp);
+        teamSearchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(), TeamSearchActivity.class);
+                startActivity(i);
             }
         });
 
