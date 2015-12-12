@@ -1,12 +1,10 @@
 package kr.ac.kookmin.oss.baseball;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -111,7 +109,7 @@ public class CompareResult extends AppCompatActivity {
             tv.setBackgroundResource(R.color.white);
         } else {
             tv.setBackgroundResource(R.color.table);
-            tv.setTextColor(R.color.black);
+            //tv.setTextColor(R.color.black);
         }
         tv.setGravity(Gravity.CENTER_HORIZONTAL);
         TableRow.LayoutParams tsm = new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1f);
