@@ -13,6 +13,7 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    MainFragment fragMain;
     SearchFragment fragSearch;
     CompareFragment fragCompare;
     PredictFragment fragPredict;
@@ -36,10 +37,14 @@ public class MainActivity extends AppCompatActivity
 
         statData = new StatData(MainActivity.this); // Initialize statistics data
 
+        fragMain = MainFragment.newInstance();
         fragSearch = SearchFragment.newInstance(); // Create search fragment
         fragCompare = CompareFragment.newInstance(); // Create compare fragment
         fragPredict = PredictFragment.newInstance(); // Create predict fragment
 
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.content_main, fragMain).commit();
     }
 
     @Override
@@ -80,7 +85,11 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_search) {
+        if (id == R.id.nav_home) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.content_main, fragMain).commit();
+        } else if (id == R.id.nav_search) {
             getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.content_main, fragSearch).commit();

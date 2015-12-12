@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -65,7 +66,9 @@ public class PredictFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 LinkedHashMap<String, String> data = searchFragment.searchPitcher((pitcherEditText.getText().toString()));
-                textView.setText("투수의 LOB는" + getLOB(data) + "입니다" + System.getProperty("line.separator") + "투수의 FIP는" + getFIP(data) + "입니다");
+                textView.setText("투수의 LOB는" + getLOB(data) + "입니다" + System.getProperty("line.separator")
+                        + "투수의 FIP는" + getFIP(data) + "입니다" + System.getProperty("line.separator")
+                        + "투수의 KBB는" + getKBB(data) + "입니다.");
             }
         });
 
@@ -76,11 +79,11 @@ public class PredictFragment extends Fragment {
 
 
     public float getBABIP(LinkedHashMap<String, String> data) {
-        float h  = Integer.parseInt(data.get("H"));
-        float hr  = Integer.parseInt(data.get("HR"));
-        float ab  = Integer.parseInt(data.get("AB"));
-        float k  = Integer.parseInt(data.get("K"));
-        float sf  = Integer.parseInt(data.get("SF"));
+        float h  = Float.parseFloat(data.get("H"));
+        float hr  = Float.parseFloat(data.get("HR"));
+        float ab  = Float.parseFloat(data.get("AB"));
+        float k  = Float.parseFloat(data.get("K"));
+        float sf  = Float.parseFloat(data.get("SF"));
 
         float babip = (h - hr) / (ab - k - hr +sf);
 
@@ -89,28 +92,42 @@ public class PredictFragment extends Fragment {
 
     }
 
-    public double getLOB(LinkedHashMap<String, String> data){
-        double h  = Integer.parseInt(data.get("H"));
-        double bb  = Integer.parseInt(data.get("BB"));
-        double hbp  = Integer.parseInt(data.get("HBP"));
-        double r  = Integer.parseInt(data.get("R"));
-        double hr  = Integer.parseInt(data.get("HR"));
-
-
+    public String getLOB(LinkedHashMap<String, String> data){
+        DecimalFormat format = new DecimalFormat("###.###");
+        double h  = Double.parseDouble(data.get("H"));
+        double bb  = Double.parseDouble(data.get("BB"));
+        double hbp  = Double.parseDouble(data.get("HBP"));
+        double r  = Double.parseDouble(data.get("R"));
+        double hr  = Double.parseDouble(data.get("HR"));
         double lob =(( h + bb + hbp - r) /  ((h + bb + hbp) - (1.4*hr)));
-        return lob;
+
+        String str = format.format(lob);
+        return str;
     }
 
-    public double getFIP(LinkedHashMap<String, String> data) {
-        double hr = Integer.parseInt(data.get("HR"));
-        double bb = Integer.parseInt(data.get("BB"));
-        double ibb = Integer.parseInt(data.get("IBB"));
-        double hbp = Integer.parseInt(data.get("HBP"));
-        double k = Integer.parseInt(data.get("K"));
-        double ip = Integer.parseInt(data.get("IP"));
+    public String getFIP(LinkedHashMap<String, String> data) {
+        DecimalFormat format = new DecimalFormat("###.###");
+        double hr = Double.parseDouble(data.get("HR"));
+        double bb = Double.parseDouble(data.get("BB"));
+        double ibb = Double.parseDouble(data.get("IBB"));
+        double hbp = Double.parseDouble(data.get("HBP"));
+        double k = Double.parseDouble(data.get("K"));
+        double ip = Double.parseDouble(data.get("IP"));
+        double fip = (((((13 * hr) + (3 * (bb + hbp - ibb))) - (2 * k)) / ip) + 3.2);
 
-        double fip = (((((13 * hr) + (3 * ((bb + hbp) - ibb))) - (2 * k)) / ip) + 3.2);
-        return fip;
+        String str = format.format(fip);
+        return str;
+ 
 
+
+    }
+
+    public String getKBB(LinkedHashMap<String, String> data) {
+        DecimalFormat format = new DecimalFormat("###.###");
+        double k = Double.parseDouble(data.get("K"));
+        double bb = Double.parseDouble(data.get("BB"));
+        double kbb = k / bb;
+        String str = format.format(kbb);
+        return str; //투수
     }
 }

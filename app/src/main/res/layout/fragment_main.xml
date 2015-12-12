@@ -1,0 +1,18 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="kr.ac.kookmin.oss.baseball.MainFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="어플설명 : 국민대학교 오픈소스소프트웨어 투애니원조가 만든 어플입니다. 팀,선수들의 Stat을 검색, 비교, 예측하는 기능이 있습니다.
+
+용어설명 :
+          타자 - name, team, g, pa, ab, h, 1b, 2b, 3b, hr, r, rbi, bb, ibb, hbp, k, sf, sh, gidp, sb, cb, avg
+          투수 - name, team, g, gs, cg, sho, qs, tbf, h, 2b, 3b, hr, r, er, k, bb, ibb, hbp, wp, bk, ip
+          팀   - team, w, k ,d win%, 10g, sw, home, away, avg, g, ab, h, 2b, 3b, hr, sb, r, ip, er" />
+
+</FrameLayout>
