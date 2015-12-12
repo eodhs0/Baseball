@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity
     SearchFragment fragSearch;
     CompareFragment fragCompare;
     PredictFragment fragPredict;
+    DictionaryFragment fragDictionary;
     static StatData statData;
 
     @Override
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity
         fragSearch = SearchFragment.newInstance(); // Create search fragment
         fragCompare = CompareFragment.newInstance(); // Create compare fragment
         fragPredict = PredictFragment.newInstance(); // Create predict fragment
+        fragDictionary = DictionaryFragment.newInstance();
 
         getSupportFragmentManager()
                 .beginTransaction()
@@ -101,6 +103,10 @@ public class MainActivity extends AppCompatActivity
             getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.content_main, fragPredict).commit();
+        } else if (id == R.id.nav_dictionary) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.content_main, fragDictionary).commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

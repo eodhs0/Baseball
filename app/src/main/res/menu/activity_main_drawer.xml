@@ -19,6 +19,11 @@
             android:icon="@drawable/ic_visibility_black_24dp"
             android:title="Predict" />
 
+        <item
+            android:id="@+id/nav_dictionary"
+            android:icon="@drawable/ic_visibility_black_24dp"
+            android:title="Dictionary" />
+
     </group>
 
 </menu>
