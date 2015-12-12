@@ -1,6 +1,7 @@
 package kr.ac.kookmin.oss.baseball;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -22,6 +23,9 @@ public class TeamSelectActivity extends AppCompatActivity {
     ImageView team_twins;
     ImageView team_wiz;
     ImageView team_wyvurns;
+
+    static Drawable team_left;
+    static Drawable team_right;
 
     static ArrayList<LinkedHashMap<String, String>> compareTeamList;
 
@@ -117,9 +121,16 @@ public class TeamSelectActivity extends AppCompatActivity {
                 if (iv.isSelected()) {
                     iv.setSelected(false);
                     compareTeamList.clear();
+                    team_left = null;
+                    team_right = null;
                 } else {
                     iv.setSelected(true);
                     compareTeamList.add(searchTeam(teamName));
+                    if(team_left == null) {
+                        team_left = iv.getDrawable();
+                    } else {
+                        team_right = iv.getDrawable();
+                    }
                     if (compareTeamList.size() == 2) {
                         Intent i = new Intent(getApplicationContext(), CompareResult.class);
                         startActivity(i);

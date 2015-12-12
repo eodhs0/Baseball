@@ -1,9 +1,15 @@
 package kr.ac.kookmin.oss.baseball;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -13,8 +19,10 @@ import java.util.LinkedHashMap;
 public class CompareResult extends AppCompatActivity {
 
     ArrayList<LinkedHashMap<String, String>> compareTeamList;
-    TextView textView1;
-    TextView textView2;
+    TableLayout table_stat;
+
+    ImageView team_left;
+    ImageView team_right;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,36 +43,79 @@ public class CompareResult extends AppCompatActivity {
 
         compareTeamList = new ArrayList<LinkedHashMap<String, String>>();
 
-        textView1 = (TextView) findViewById(R.id.textView1);
-        textView2 = (TextView) findViewById(R.id.textView2);
+        team_left = (ImageView) findViewById(R.id.team_left);
+        team_right = (ImageView) findViewById(R.id.team_right);
+
+        table_stat = (TableLayout) findViewById(R.id.table_stat);
 
         compareTeamList = TeamSelectActivity.compareTeamList;
-        LinkedHashMap<String, String> data = compareTeamList.get(0);
-        String temp = "";
+        LinkedHashMap<String, String> teamLeftHashMap = compareTeamList.get(0);
+        LinkedHashMap<String, String> teamRightHashMap = compareTeamList.get(1);
 
-        Iterator<String> iterator = data.keySet().iterator();
-        while (iterator.hasNext()) {
-            String key = (String) iterator.next();
-            temp = temp + " " + key + " " + data.get(key) + System.getProperty("line.separator");
+        Iterator<String> iteratorLeft = teamLeftHashMap.keySet().iterator();
+
+        if (iteratorLeft.hasNext()) {
+            String key = (String) iteratorLeft.next();
+            TableRow row = new TableRow(this);
+            // create a new TextView for showing xml data
+            TextView teamLeft = new TextView(this);
+            TextView stat = new TextView(this);
+            TextView teamRight = new TextView(this);
+
+            setTextViewLayout(teamLeft, teamLeftHashMap.get(key), "color");
+            setTextViewLayout(stat, "기록", "color");
+            setTextViewLayout(teamRight, teamRightHashMap.get(key), "color");
+
+            row.addView(teamLeft);
+            row.addView(stat);
+            row.addView(teamRight);
+            // add the TableRow to the TableLayout
+            table_stat.addView(row, new TableLayout.LayoutParams(TableLayout.LayoutParams.WRAP_CONTENT, TableLayout.LayoutParams.WRAP_CONTENT));
+
         }
-        textView1.setText(temp);
 
+        while (iteratorLeft.hasNext()) {
+            String key = (String) iteratorLeft.next();
+            TableRow row = new TableRow(this);
+            // create a new TextView for showing xml data
+            TextView teamLeft = new TextView(this);
+            TextView stat = new TextView(this);
+            TextView teamRight = new TextView(this);
 
-        temp = "";
-        data = compareTeamList.get(1);
-        iterator = data.keySet().iterator();
-        while (iterator.hasNext()) {
-            String key = (String) iterator.next();
-            temp = temp + " " + key + " " + data.get(key) + System.getProperty("line.separator");
+            setTextViewLayout(teamLeft, teamLeftHashMap.get(key), "white");
+            setTextViewLayout(stat, key, "color");
+            setTextViewLayout(teamRight, teamRightHashMap.get(key), "white");
+
+            row.addView(teamLeft);
+            row.addView(stat);
+            row.addView(teamRight);
+            // add the TableRow to the TableLayout
+            table_stat.addView(row, new TableLayout.LayoutParams(TableLayout.LayoutParams.WRAP_CONTENT, TableLayout.LayoutParams.WRAP_CONTENT));
         }
 
-        textView2.setText(temp);
+        team_left.setImageDrawable(TeamSelectActivity.team_left);
+        team_right.setImageDrawable(TeamSelectActivity.team_right);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         TeamSelectActivity.compareTeamList.clear();
+        TeamSelectActivity.team_left = null;
+        TeamSelectActivity.team_right = null;
     }
 
+    public void setTextViewLayout(TextView tv, String str, String color) {
+        tv.setText(str);
+        if (color.equals("white")) {
+            tv.setBackgroundResource(R.color.white);
+        } else {
+            tv.setBackgroundResource(R.color.table);
+            tv.setTextColor(R.color.black);
+        }
+        tv.setGravity(Gravity.CENTER_HORIZONTAL);
+        TableRow.LayoutParams tsm = new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1f);
+        tsm.setMargins(3, 3, 3, 3); // setMargins(left, top, right, bottom);
+        tv.setLayoutParams(tsm);
+    }
 }

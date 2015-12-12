@@ -5,4 +5,7 @@
     <color name="colorAccent">#FF4081</color>
     <color name="pressed">#B3CA6F</color>
     <color name="nonpressed">#4D5052</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="table">#ffabccf2</color>
 </resources>
