@@ -23,4 +23,5 @@
 
     <include layout="@layout/content_batter_search_activity" />
 
+
 </android.support.design.widget.CoordinatorLayout>
