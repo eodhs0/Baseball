@@ -25,7 +25,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".CompareResult"
-            android:label="@string/title_activity_compare_result" />
+            android:label="@string/title_activity_compare_result"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".BetterSearchActivity"
             android:label="@string/title_activity_batter_search_activity"

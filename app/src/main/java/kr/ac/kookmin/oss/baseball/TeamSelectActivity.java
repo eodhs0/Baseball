@@ -6,10 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 
 public class TeamSelectActivity extends AppCompatActivity {
@@ -48,206 +46,36 @@ public class TeamSelectActivity extends AppCompatActivity {
         });
 
         team_bears = (ImageView) findViewById(R.id.team_bears);
-        team_bears.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (team_bears.isSelected()) {
-                    team_bears.setSelected(false);
-                    compareTeamList.clear();
-                } else {
-                    team_bears.setSelected(true);
-                    compareTeamList.add(searchTeam("두산"));
-                    if (compareTeamList.size() == 2) {
-                        Intent i = new Intent(getApplicationContext(), CompareResult.class);
-                        startActivity(i);
-                        finish();
-                    }
-                }
-            }
-        });
+        addClickListener(team_bears, "두산");
 
         team_dinos = (ImageView) findViewById(R.id.team_dinos);
-        team_dinos.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (team_dinos.isSelected()) {
-                    team_dinos.setSelected(false);
-                    compareTeamList.clear();
-                } else {
-                    team_dinos.setSelected(true);
-                    compareTeamList.add(searchTeam("NC"));
-                    if (compareTeamList.size() == 2) {
-                        Intent i = new Intent(getApplicationContext(), CompareResult.class);
-                        i.putExtra("CompareTeam", compareTeamList);
-                        startActivity(i);
-                        finish();
-                    }
-                }
-            }
-        });
+        addClickListener(team_dinos, "NC");
 
         team_eagles = (ImageView) findViewById(R.id.team_eagles);
-        team_eagles.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (team_eagles.isSelected()) {
-                    team_eagles.setSelected(false);
-                    compareTeamList.clear();
-                } else {
-                    team_eagles.setSelected(true);
-                    compareTeamList.add(searchTeam("한화"));
-                    if (compareTeamList.size() == 2) {
-                        Intent i = new Intent(getApplicationContext(), CompareResult.class);
-                        i.putExtra("CompareTeam", compareTeamList);
-                        startActivity(i);
-                        finish();
-                    }
-                }
-            }
-        });
+        addClickListener(team_eagles, "한화");
 
         team_giants = (ImageView) findViewById(R.id.team_giants);
-        team_giants.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (team_giants.isSelected()) {
-                    team_giants.setSelected(false);
-                    compareTeamList.clear();
-                } else {
-                    team_giants.setSelected(true);
-                    compareTeamList.add(searchTeam("롯데"));
-                    if (compareTeamList.size() == 2) {
-                        Intent i = new Intent(getApplicationContext(), CompareResult.class);
-                        i.putExtra("CompareTeam", compareTeamList);
-                        startActivity(i);
-                        finish();
-                    }
-                }
-            }
-        });
+        addClickListener(team_giants, "롯데");
 
         team_heroes = (ImageView) findViewById(R.id.team_heroes);
-        team_heroes.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (team_heroes.isSelected()) {
-                    team_heroes.setSelected(false);
-                    compareTeamList.clear();
-                } else {
-                    team_heroes.setSelected(true);
-                    compareTeamList.add(searchTeam("넥센"));
-                    if (compareTeamList.size() == 2) {
-                        Intent i = new Intent(getApplicationContext(), CompareResult.class);
-                        i.putExtra("CompareTeam", compareTeamList);
-                        startActivity(i);
-                        finish();
-                    }
-                }
-            }
-        });
+        addClickListener(team_heroes, "넥센");
 
         team_lions = (ImageView) findViewById(R.id.team_lions);
-        team_lions.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (team_lions.isSelected()) {
-                    team_lions.setSelected(false);
-                    compareTeamList.clear();
-                } else {
-                    team_lions.setSelected(true);
-                    compareTeamList.add(searchTeam("삼성"));
-                    if (compareTeamList.size() == 2) {
-                        Intent i = new Intent(getApplicationContext(), CompareResult.class);
-                        i.putExtra("CompareTeam", compareTeamList);
-                        startActivity(i);
-                        finish();
-                    }
-                }
-            }
-        });
+        addClickListener(team_lions, "삼성");
 
         team_tigers = (ImageView) findViewById(R.id.team_tigers);
-        team_tigers.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (team_tigers.isSelected()) {
-                    team_tigers.setSelected(false);
-                    compareTeamList.clear();
-                } else {
-                    team_tigers.setSelected(true);
-                    compareTeamList.add(searchTeam("KIA"));
-                    if (compareTeamList.size() == 2) {
-                        Intent i = new Intent(getApplicationContext(), CompareResult.class);
-                        i.putExtra("CompareTeam", compareTeamList);
-                        startActivity(i);
-                        finish();
-                    }
-                }
-            }
-        });
+        addClickListener(team_tigers, "KIA");
 
         team_twins = (ImageView) findViewById(R.id.team_twins);
-        team_twins.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (team_twins.isSelected()) {
-                    team_twins.setSelected(false);
-                    compareTeamList.clear();
-                } else {
-                    team_twins.setSelected(true);
-                    compareTeamList.add(searchTeam("LG"));
-                    if (compareTeamList.size() == 2) {
-                        Intent i = new Intent(getApplicationContext(), CompareResult.class);
-                        i.putExtra("CompareTeam", compareTeamList);
-                        startActivity(i);
-                        finish();
-                    }
-                }
-            }
-        });
+        addClickListener(team_twins, "LG");
 
         team_wiz = (ImageView) findViewById(R.id.team_wiz);
-        team_wiz.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (team_wiz.isSelected()) {
-                    team_wiz.setSelected(false);
-                    compareTeamList.clear();
-                } else {
-                    team_wiz.setSelected(true);
-                    compareTeamList.add(searchTeam("kt"));
-                    if (compareTeamList.size() == 2) {
-                        Intent i = new Intent(getApplicationContext(), CompareResult.class);
-                        i.putExtra("CompareTeam", compareTeamList);
-                        startActivity(i);
-                        finish();
-                    }
-                }
-            }
-        });
+        addClickListener(team_wiz, "kt");
 
         team_wyvurns = (ImageView) findViewById(R.id.team_wyvurns);
-        team_wyvurns.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (team_wyvurns.isSelected()) {
-                    team_wyvurns.setSelected(false);
-                    compareTeamList.clear();
-                } else {
-                    team_wyvurns.setSelected(true);
-                    compareTeamList.add(searchTeam("SK"));
-                    if (compareTeamList.size() == 2) {
-                        Intent i = new Intent(getApplicationContext(), CompareResult.class);
-                        i.putExtra("CompareTeam", compareTeamList);
-                        startActivity(i);
-                        finish();
-                    }
-                }
-            }
-        });
+        addClickListener(team_wyvurns, "SK");
 
     }
-
 
     public LinkedHashMap<String, String> searchBatter(String name) {
         ArrayList<LinkedHashMap<String, String>> data = MainActivity.statData.BatterList;
@@ -280,6 +108,26 @@ public class TeamSelectActivity extends AppCompatActivity {
             }
         }
         return null;
+    }
+
+    public void addClickListener(final ImageView iv, final String teamName) {
+        iv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (iv.isSelected()) {
+                    iv.setSelected(false);
+                    compareTeamList.clear();
+                } else {
+                    iv.setSelected(true);
+                    compareTeamList.add(searchTeam(teamName));
+                    if (compareTeamList.size() == 2) {
+                        Intent i = new Intent(getApplicationContext(), CompareResult.class);
+                        startActivity(i);
+                        finish();
+                    }
+                }
+            }
+        });
     }
 
 }
