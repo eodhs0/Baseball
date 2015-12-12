@@ -50,6 +50,13 @@
         <activity
             android:name=".TeamSearchActivity"
             android:label="@string/title_activity_team_search_activity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".BatterSelectActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".BatterCompareResult"
+            android:label="@string/title_activity_batter_compare_result"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

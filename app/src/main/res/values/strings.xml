@@ -14,4 +14,5 @@
     <string name="title_activity_team_search_result">team_search_result</string>
     <string name="title_activity_pitcher_search_activity">pitcher_search_activity</string>
     <string name="title_activity_team_search_activity">team_search_activity</string>
+    <string name="title_activity_batter_compare_result">BatterCompareResult</string>
 </resources>
