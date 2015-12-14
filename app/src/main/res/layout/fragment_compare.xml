@@ -15,14 +15,14 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
+            android:layout_marginTop="20dp"
             android:src="@drawable/logo" />
-
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="16dp"
-            android:text="타자, 투수, 팀 중에서 비교를 원하는 것에 해당하는 버튼을 눌러주세요~ 선택에 해당하는 결과를 보여줍니다!" />
+            android:padding="20dp"
+            android:text="타자, 투수, 팀 중에서 비교를 원하는 것에\n해당하는 버튼을 눌러주세요\n선택에 해당하는 결과를 보여줍니다!" />
 
     </LinearLayout>
 
@@ -30,24 +30,28 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="20dp">
 
         <Button
             android:id="@+id/batter_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:text="타자비교" />
 
         <Button
             android:id="@+id/pitcher_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:text="투수비교" />
 
         <Button
             android:id="@+id/team_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:text="팀비교" />
 
     </LinearLayout>
