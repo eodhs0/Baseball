@@ -58,6 +58,18 @@
             android:name=".BatterCompareResult"
             android:label="@string/title_activity_batter_compare_result"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".DictionaryBatterWordActivity"
+            android:label="@string/title_activity_batter_compare_result"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".DictionaryPitcherWordActivity"
+            android:label="@string/title_activity_batter_compare_result"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".DictionaryTeamWordActivity"
+            android:label="@string/title_activity_batter_compare_result"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
