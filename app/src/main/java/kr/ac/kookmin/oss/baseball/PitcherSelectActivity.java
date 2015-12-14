@@ -1,20 +1,16 @@
 package kr.ac.kookmin.oss.baseball;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ExpandableListView;
-import android.widget.TableLayout;
-import android.widget.TableRow;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 
-public class BatterSelectActivity extends AppCompatActivity {
+public class PitcherSelectActivity extends AppCompatActivity {
 
     private ArrayList<String> mGroupList = null;
     private ArrayList<ArrayList<String>> mChildList = null;
@@ -30,12 +26,12 @@ public class BatterSelectActivity extends AppCompatActivity {
     private ArrayList<String> mChildListContentKt = null;
 
 
-    static ArrayList<LinkedHashMap<String, String>> compareBatterList;
+    static ArrayList<LinkedHashMap<String, String>> comparePitcherList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_batter_select);
+        setContentView(R.layout.activity_pitcher_select);
         setLayout();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -51,7 +47,7 @@ public class BatterSelectActivity extends AppCompatActivity {
             }
         });
 
-        compareBatterList = new ArrayList<LinkedHashMap<String, String>>();
+        comparePitcherList = new ArrayList<LinkedHashMap<String, String>>();
 
         mGroupList = new ArrayList<String>();
         mChildList = new ArrayList<ArrayList<String>>();
@@ -63,7 +59,7 @@ public class BatterSelectActivity extends AppCompatActivity {
         mChildListContentHanhwa = new ArrayList<String>();
         mChildListContentKia = new ArrayList<String>();
         mChildListContentLotte = new ArrayList<String>();
-        mChildListContentLg= new ArrayList<String>();
+        mChildListContentLg = new ArrayList<String>();
         mChildListContentKt = new ArrayList<String>();
 
         mGroupList.add("두산");
@@ -77,7 +73,7 @@ public class BatterSelectActivity extends AppCompatActivity {
         mGroupList.add("LG");
         mGroupList.add("kt");
 
-        ArrayList<LinkedHashMap<String, String>> data = MainActivity.statData.BatterList;
+        ArrayList<LinkedHashMap<String, String>> data = MainActivity.statData.PitcherList;
         int len = data.size();
         for (int i = 1; i < len; i++) {
             if (data.get(i).get("TEAM").equals("두산")) {
@@ -114,7 +110,8 @@ public class BatterSelectActivity extends AppCompatActivity {
         mChildList.add(mChildListContentLg);
         mChildList.add(mChildListContentKt);
 
-        mListView.setAdapter(new BaseExpandableAdapter(this, mGroupList, mChildList));
+        mListView.setAdapter(new BaseExpandableAdapterPitcher(this, mGroupList, mChildList));
+
     }
 
     /*

@@ -51,7 +51,7 @@ public class CompareFragment extends Fragment {
         pitcherButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getContext(), TeamSelectActivity.class);
+                Intent i = new Intent(getContext(), PitcherSelectActivity.class);
                 startActivity(i);
             }
         });

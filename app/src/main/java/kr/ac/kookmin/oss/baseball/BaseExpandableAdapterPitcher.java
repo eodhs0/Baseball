@@ -15,7 +15,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
-public class BaseExpandableAdapter extends BaseExpandableListAdapter {
+public class BaseExpandableAdapterPitcher extends BaseExpandableListAdapter {
 
     private ArrayList<String> groupList = null;
     private ArrayList<ArrayList<String>> childList = null;
@@ -24,7 +24,7 @@ public class BaseExpandableAdapter extends BaseExpandableListAdapter {
     private Context mContext;
     private Drawable myDrawable;
 
-    public BaseExpandableAdapter(Context c, ArrayList<String> groupList,
+    public BaseExpandableAdapterPitcher(Context c, ArrayList<String> groupList,
                                  ArrayList<ArrayList<String>> childList) {
         super();
         this.inflater = LayoutInflater.from(c);
@@ -162,18 +162,18 @@ public class BaseExpandableAdapter extends BaseExpandableListAdapter {
         public CheckBox cb_child;
     }
 
-    public void addCheckListener(final CheckBox cb, final String batterName) {
+    public void addCheckListener(final CheckBox cb, final String pitcherName) {
         cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (!isChecked) {
-                    BatterSelectActivity.compareBatterList.clear();
+                    PitcherSelectActivity.comparePitcherList.clear();
                     cb.setSelected(false);
                 } else {
                     cb.setSelected(true);
-                    BatterSelectActivity.compareBatterList.add(searchBatter(batterName));
-                    if (BatterSelectActivity.compareBatterList.size() == 2) {
-                        Intent i = new Intent(mContext, BatterCompareResult.class);
+                    PitcherSelectActivity.comparePitcherList.add(searchPitcher(pitcherName));
+                    if (PitcherSelectActivity.comparePitcherList.size() == 2) {
+                        Intent i = new Intent(mContext, PitcherCompareResult.class);
                         mContext.startActivity(i);
                     }
                 }

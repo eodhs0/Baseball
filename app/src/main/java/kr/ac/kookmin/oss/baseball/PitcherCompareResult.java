@@ -15,15 +15,15 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 
-public class BatterCompareResult extends AppCompatActivity {
+public class PitcherCompareResult extends AppCompatActivity {
 
-    ArrayList<LinkedHashMap<String, String>> compareBatterList;
+    ArrayList<LinkedHashMap<String, String>> comparePitcherList;
     TableLayout table_stat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_batter_compare_result);
+        setContentView(R.layout.activity_pitcher_compare_result);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("비교결과");
 
@@ -37,12 +37,12 @@ public class BatterCompareResult extends AppCompatActivity {
             }
         });
 
-        compareBatterList = new ArrayList<LinkedHashMap<String, String>>();
+        comparePitcherList = new ArrayList<LinkedHashMap<String, String>>();
 
-        table_stat = (TableLayout) findViewById(R.id.table_stat_batter);
+        table_stat = (TableLayout) findViewById(R.id.table_stat_pitcher);
 
-        LinkedHashMap<String, String> teamLeftHashMap = BatterSelectActivity.compareBatterList.get(0);
-        LinkedHashMap<String, String> teamRightHashMap = BatterSelectActivity.compareBatterList.get(1);
+        LinkedHashMap<String, String> teamLeftHashMap = PitcherSelectActivity.comparePitcherList.get(0);
+        LinkedHashMap<String, String> teamRightHashMap = PitcherSelectActivity.comparePitcherList.get(1);
 
         Iterator<String> iteratorLeft = teamLeftHashMap.keySet().iterator();
 
@@ -89,7 +89,7 @@ public class BatterCompareResult extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        BatterSelectActivity.compareBatterList.clear();
+        PitcherSelectActivity.comparePitcherList.clear();
     }
 
     public void setTextViewLayout(TextView tv, String str, String color) {
