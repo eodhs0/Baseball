@@ -16,8 +16,9 @@
 
     <EditText
         android:id="@+id/search_text"
-        android:layout_width="558dp"
+        android:layout_width="559dp"
         android:layout_height="50dp"
+        android:hint="검색하고 싶은 팀 입력"
         android:layout_gravity="center"/>
 
     <Button
@@ -29,7 +30,7 @@
 
 
     <ImageView
-        android:layout_width="250dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:src="@drawable/kbologo"
         android:layout_gravity="center_horizontal" />

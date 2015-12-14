@@ -15,8 +15,9 @@
 
     <EditText
         android:id="@+id/search_text"
-        android:layout_width="558dp"
+        android:layout_width="559dp"
         android:layout_height="50dp"
+        android:hint="검색하고 싶은 타자 입력"
         android:layout_gravity="center"/>
 
     <Button

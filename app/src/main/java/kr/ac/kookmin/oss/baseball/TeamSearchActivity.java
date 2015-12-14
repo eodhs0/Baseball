@@ -22,8 +22,16 @@ public class TeamSearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team_search_activity);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("Team Search");
+        toolbar.setTitle("검색하고 싶은 팀을 입력하세요");
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         editText = (EditText) findViewById(R.id.search_text);
         searchButton = (Button) findViewById(R.id.search_button);

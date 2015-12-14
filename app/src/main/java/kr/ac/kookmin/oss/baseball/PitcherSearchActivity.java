@@ -22,8 +22,16 @@ public class PitcherSearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pitcher_search_activity);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("Pitcher Search");
+        toolbar.setTitle("검색하고 싶은 투수를 입력하세요");
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         editText = (EditText) findViewById(R.id.search_text);
         searchButton = (Button) findViewById(R.id.search_button);

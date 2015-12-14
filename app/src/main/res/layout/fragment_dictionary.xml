@@ -1,13 +1,46 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="kr.ac.kookmin.oss.baseball.DictionaryFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="550dp"
+        android:weightSum="1">
 
-</FrameLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="8dp">
+
+            <Button
+                android:id="@+id/batterWord"
+
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="타자 용어" />
+
+            <Button
+                android:id="@+id/pitcherWord"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="투수 용어" />
+
+            <Button
+                android:id="@+id/teamWord"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="팀 용어" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="800dp"
+            android:layout_height="220dp"
+            android:layout_gravity="center|center"
+            android:src="@drawable/kbologo" />
+    </LinearLayout>
+</LinearLayout>

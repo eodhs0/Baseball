@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="10dp"
     tools:context="">
 
     <LinearLayout
@@ -14,10 +15,12 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingLeft="8dp">
 
             <Button
                 android:id="@+id/search_batterbutton"
+
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:text="타자 search" />
@@ -37,7 +40,7 @@
                 </LinearLayout>
 
         <ImageView
-            android:layout_width="700dp"
+            android:layout_width="800dp"
             android:layout_height="220dp"
             android:layout_gravity="center|center"
             android:src="@drawable/kbologo" />
